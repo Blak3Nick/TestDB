@@ -9,7 +9,10 @@ public class Main {
         try {
             Connection conn = DriverManager.getConnection("jdbc:sqlite:testjava.db");
             Statement statement = conn.createStatement();
-            statement.execute("CREATE TABLE contacts (name TEXT, phone INTEGER, email TEXT)");
+            statement.execute("CREATE TABLE IF NOT EXISTS contacts " +
+                                "(name TEXT, phone INTEGER, email TEXT)");
+            statement.execute("INSERT INTO contacts (name, phone, email)" +
+                    "VALUES ('Blake', 6452323, 'email.com' )");
             statement.close();
             conn.close();
         } catch (SQLException e) {
