@@ -13,6 +13,12 @@ public class Main {
                                 "(name TEXT, phone INTEGER, email TEXT)");
             statement.execute("INSERT INTO contacts (name, phone, email)" +
                     "VALUES ('Blake', 6452323, 'email.com' )");
+            statement.execute("INSERT INTO contacts (name, phone, email)" +
+                    "VALUES ('Jane', 6452323, 'email.com' )");
+            statement.execute("INSERT INTO contacts (name, phone, email)" +
+                    "VALUES ('Jill', 6452323, 'email.com' )");
+            statement.execute("UPDATE contacts SET phone=55555555 WHERE name='Jane'" );
+
             statement.close();
             conn.close();
         } catch (SQLException e) {
