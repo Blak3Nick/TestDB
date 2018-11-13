@@ -21,6 +21,8 @@ public class Main {
                                             COLUMN_PHONE + " integer, " +
                                             COLUMN_EMAIL + " text" +
                                     ")");
+
+            insertContact(statement, "Blake", 6452323, "someemail.com");
             statement.execute("INSERT INTO " + TABLE_CONTACTS +
                                 "(" + COLUMN_NAME + ", " +
                                         COLUMN_PHONE + ", " +
@@ -70,5 +72,14 @@ public class Main {
             System.out.println("something went wrong " + e.getMessage());
             e.printStackTrace();
         }
+    }
+
+    private static void insertContact(Statement statement, String name, int phone, String email) throws SQLException {
+        statement.execute("INSERT INTO " + TABLE_CONTACTS +
+                "(" + COLUMN_NAME + ", " +
+                COLUMN_PHONE + ", " +
+                COLUMN_EMAIL +
+                ")" +
+                "VALUES('" + name + "', " + phone + ", '" + email + "')");
     }
 }
